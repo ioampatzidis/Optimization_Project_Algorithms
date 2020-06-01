@@ -7,6 +7,8 @@ Knapsack - Naive recursive implementation in python
 
 Knapsack - Dynamic Programming
 
+Quadratic assignment problem solver in python
+
 Fibonacci sequence solver in python
 
-Quadratic assignment problem solver in python
+
