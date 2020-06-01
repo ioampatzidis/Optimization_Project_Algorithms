@@ -1,5 +1,4 @@
 # Optimization_Project_Algorithms
-Optimization algorithms written in Python and MATLAB
 
 
 Unconstrained Optimization Problems
