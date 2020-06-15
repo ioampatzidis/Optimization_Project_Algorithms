@@ -4,17 +4,13 @@ Created on Fri Jun 12 21:04:15 2020
 
 @author: ioamp
 """
-
-
 a=2
 num_of_ants=100
 
 probS=[]
 probL=[]
 
-#Πόσα μυρμίγκια είναι στον κόμβο 
 def antsInNode1(num_of_ants,t):
-    #Αρχικά οι πιθανότητες για να επιλεγεί το κάθε μονοπάτι είναι οι ίδιες (1/2)
     if t==0:
         return num_of_ants/2.;
     elif t==1:
@@ -22,12 +18,10 @@ def antsInNode1(num_of_ants,t):
     else:
         return probability_to_choose_short_branch(num_of_ants,t-1)*antsInNode1(num_of_ants,t-1) + probability_to_choose_long_branch(num_of_ants,t-2)*antsInNode1(num_of_ants,t-2);
 
-#έπειτα στις παρακάτω 4 μεθόδους εφαρμόζουμε τους τύπους των διαφανειών
 def pher_in_short_branch(num_of_ants,t):
     if t==0: #είναι αρχική τιμή
         return 0.5;
     else: 
-        #σε αυτή τη περίπτωση βάζουμε τον τύπο που δίνει την φερορμόνη στο short μονοπάτι
         return pher_in_short_branch(num_of_ants,t-1)+probability_to_choose_short_branch(num_of_ants,t-1)*antsInNode1(num_of_ants,t-1)+probability_to_choose_short_branch(num_of_ants,t-1)*antsInNode1(num_of_ants,t-1)
     
 def pher_in_long_branch(num_of_ants,t):
@@ -52,9 +46,6 @@ def probability_to_choose_long_branch(num_of_ants,t):
     else:
         return 1-probability_to_choose_short_branch(num_of_ants,t)
     
-
-# κάνουμε επαναλήψεις για t μέχρι 8 όπως ζητήθηκε στην εκφώνηση
-#Σε κάθε επανάληψη εναλάσσουμε το i στις τιμές 1,2   
 for g in range(0, 9):
    
     probS.append(probability_to_choose_short_branch(num_of_ants,g)) 
@@ -68,7 +59,6 @@ for g in range(0, 9):
     print(" ")
 
     
-#τυπώνουμε τον γράφο που αναπαριστά γραφικά τα δεδομένα μας
 import matplotlib.pyplot as plt 
 
 plt.plot(probS,'-o', label='short path',color="blue")
