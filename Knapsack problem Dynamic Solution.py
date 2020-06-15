@@ -52,6 +52,5 @@ def printknapSack(Cap, wt, val, n):
             result = result - val[i - 1] 
             w = w - wt[i - 1] 
             
-# Καλούμε την μέθοδο printknapSack()              
 printknapSack(Cap, wt, val, n) 
   
